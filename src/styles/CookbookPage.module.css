@@ -1,0 +1,88 @@
+
+.container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-47.1%, -47.9%);
+    width: 27.5rem;
+    height: 35.625rem;
+    background-color: rgb(237, 220, 201);
+    border-radius:  0 10px 10px 0;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.407);
+    z-index: 2;
+    transition: transform .4s;
+}
+
+.toTop{
+    top: 50%;
+    left: 50%;
+    transform: translate(-49%, -49.5%);
+    z-index: 5;
+    transition: transform .4s;
+}
+
+.nav{
+    position: absolute;
+    top: 12rem;
+    right: -1.5rem;
+    height: 3.5rem;
+    width: 4.5rem;
+    border-radius: 0 5px 5px 0;
+    background-color: rgb(223, 199, 172);
+    transition: right .3s, background-color .3s;
+}
+
+.nav:hover{
+    cursor: pointer;
+    right: -3rem;
+    background-color: rgb(240, 222, 201);
+    transition: right .3s, background-color .3s;
+}
+
+.selected{
+    right: -3rem;
+    background-color: rgb(240, 222, 201);
+}
+
+.selected:hover{
+    cursor: default;
+}
+
+.bookmark{
+    position: absolute;
+    top: 0;
+    left: 4rem;
+    height: 36.3rem;
+    width: 2.8rem;
+    background-color: rgb(135, 50, 50);
+}
+
+.bookmark::before{
+    position: absolute;
+    content: "";
+    top: 35.6rem;
+    left: 0rem;
+    height: 0;
+    width: 0;
+    border-top: 1.2rem solid rgb(135, 50, 50);
+    border-left: 2.8rem solid transparent;
+}
+
+
+.bookmark::after{
+    position: absolute;
+    content: "";
+    top: 35.6rem;
+    left: 0rem;
+    height: 0;
+    width: 0;
+    border-top: 1.2rem solid rgb(135, 50, 50);
+    border-right: 2.8rem solid transparent;
+}
+
+.img{
+    position: relative;
+    top: .3rem;
+    right: -1.4rem;
+    width: 3rem;
+}

@@ -1,0 +1,46 @@
+.container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-46%, -47%);
+    width: 27.5rem;
+    height: 35.625rem;
+    background-color: rgb(108, 17, 17);
+    border-radius: 5px;
+    box-shadow: 0 0 1.25rem rgba(0, 0, 0, 0.668);
+    z-index: -1;
+}
+
+.container::before{
+   position: absolute;
+   bottom: -.9rem;
+   left: -2.25rem;
+   background-color: rgb(91, 12, 12);
+   content: "";
+   width: 3.6rem;
+   height: 38rem;
+   perspective: 3.125rem;
+   border-radius: 5px;
+   transform: rotate3d(1.6, 5, 1, 65deg);
+}
+
+.pageOne{
+    position: absolute;
+    top: 1.875rem;
+    right: -1.8625rem;
+    transform: rotate(-76deg);
+    width: 28.75rem;
+    height: 25rem;
+    background-color: rgb(179, 142, 103);
+}
+
+.pageTwo{
+   position: absolute;
+   bottom: 2.5rem;
+   right: -1.5625rem;
+   transform: rotate(74deg);
+   width: 27rem;
+   height: 25rem;
+   background-color: rgb(255, 201, 143);
+}
+
