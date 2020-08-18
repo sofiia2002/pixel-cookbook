@@ -13,3 +13,17 @@ body {
   /* font-family: 'Press Start 2P', cursive; */
   font-family: 'Chelsea Market', cursive;
 }
+
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #65030385;
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-track {
+  background: #6503032d;
+}

@@ -27,6 +27,10 @@ class Home extends Component {
           />
         </div>
         <div className={HomePage.bodyContainer}>
+        <div class={HomePage.header}>Home</div>
+          <div class={HomePage.headerText}>
+            <div>Welcome</div>
+          </div>
           <div className={HomePage.photoContainer}>
             <img
               src={require("../images/photoTwo.png")}
@@ -34,12 +38,31 @@ class Home extends Component {
               className={HomePage.photo}
             />
           </div>
-          <div class={HomePage.header}>Home</div>
           <div className={HomePage.titleText}>
+            <div>Let's</div>
             <div>Create</div>
             <div>great</div> 
             <div>memories</div>
-            <div onClick={this.props.toCreateRecipe}>New recipe</div>
+          </div>
+
+          <div className={HomePage.bodyText}>
+            <p>
+              This cookbook was created special for those people who are 
+              in love with pixel games and cooking as much as we are. Maybe
+              it doesn't have a lot of features and fancy minimalistic look, 
+              but it was created with love. <br/> <br/>
+              Here you can add recipes in "Add recipe" category add manage 
+              them in "Cookbook" category. Also here you can read a little bit 
+              about developers in "About" category.  <br/> <br/>
+              We are wishing you to have a good time dealing with this authentic 
+              cookbook!
+            </p>
+            <img
+            src={require("../images/logo.png")}
+            className={HomePage.logo}
+            alt=""
+          />
+
           </div>
         </div>
       </div>

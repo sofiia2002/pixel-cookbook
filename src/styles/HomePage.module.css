@@ -24,6 +24,7 @@
     transition: transform .4s;
 }
 
+
 /*-----------------------------------------------
                      NAV
 -----------------------------------------------*/
@@ -70,6 +71,9 @@
 .header{
     font-size: 1.2rem;
     position: fixed;
+    z-index: 2;
+    height: 2.8rem;
+    width: 8rem;
     top: 1.48rem;
     left: 9.87rem;
     color: rgb(157, 134, 106);
@@ -93,9 +97,25 @@
   left: 6%;
   height: 84%;
   width: 88%;
-  border-radius: 10px;
+  border-radius: 5px;
   border: 2px dashed  rgb(220, 191, 156);
   background-color: rgb(242, 232, 220);
+  overflow: auto;
+  padding: 2rem 1rem;
+}
+
+/*-----------------------------------------------
+                    TITLE
+-----------------------------------------------*/
+
+.headerText{
+    position: absolute;
+    top: 2rem;
+    left: 7.1rem;
+    color: rgb(133, 15, 15);
+    font-size: 1.9rem;
+    text-transform: uppercase;
+    letter-spacing: .08rem;
 }
 
 /*-----------------------------------------------
@@ -108,13 +128,12 @@
     background-color: rgba(203, 179, 149, 0.585);
     border: 3px dotted rgba(155, 136, 113, 0.397);
     border-radius: 5px;
-    top: 6rem;
-    left: .8rem;
-    width: 22.4rem;
+    top: 5.4rem;
+    width: 22rem;
 }
 
 .photo{
-    width: 21.2rem;
+    width: 20.6rem;
 }
 
 
@@ -126,6 +145,7 @@
     font-size: 1.4rem;
     color: rgb(133, 15, 15);
     text-transform: uppercase;
+    letter-spacing: -.05rem;
 }
 
 .titleText>*{
@@ -135,44 +155,72 @@
 }
 
 .titleText>*:nth-child(1){
-    top: 1.5rem;
-    left: 6rem;
+    top: 24.8rem;
+    left: 4rem;
     transform: rotate(0.5deg);
     width: 6.5rem;
 }
 
 .titleText>*:nth-child(2){
-    top: 1.5rem;
-    left: 11.6rem;
+    top: 24.8rem;
+    left: 8.3rem;
+    transform: rotate(0.5deg);
+    width: 6.5rem;
+}
+
+.titleText>*:nth-child(3){
+    top: 24.8rem;
+    left: 13.35rem;
     width: 6.5rem;
     transform: rotate(-.5deg);
 }
 
-.titleText>*:nth-child(3){
-    top: 3.2rem;
-    left: 2.4rem;
+.titleText>*:nth-child(4){
+    top: 26.1rem;
+    left: 2.45rem;
     letter-spacing: .6rem;
     width: 20rem;
     font-size: 1.8rem;
     font-weight: bold;
 }
 
-.titleText>*:last-child{
+.titleText>*:nth-child(4)::after{
     position: absolute;
-    left: 3.8rem;
-    top: 25.3rem;
-    width: 17rem;
-    font-size: 1.9rem;
-    text-align: center;
-    background-color: rgb(247, 236, 219);
-    border: 3.5px dashed rgba(114, 22, 15, 0.822);
-    border-radius: 5px;
-    box-shadow: 0 0 5px rgba(133, 15, 15, 0.212);
-    transition: box-shadow .2s;
+    left: -.5rem;
+    top: 4.5rem;
+    content: "";
+    width: 20rem;
+    height: .15rem;
+    background-color: rgba(133, 15, 15, 0.196);
 }
 
-.titleText>*:last-child:hover{
-    cursor: pointer;
-    box-shadow: 0 0 8px rgba(133, 15, 15, 0.412);
-    transition: box-shadow .2s;
+/*-----------------------------------------------
+                    BODY TEXT
+-----------------------------------------------*/
+ /*
+p{
+    font-family: 'EB Garamond', serif;
+}
+*/
+
+.bodyText{
+    position: relative;
+    font-size: .85rem;
+    line-height: 1.2rem;
+    top: 31.5rem;
+    text-align: center;
+}
+
+/*-----------------------------------------------
+                    LOGO
+-----------------------------------------------*/
+
+.logo{
+    position: relative;
+    box-sizing: border-box;
+    top: 2rem;
+    width: 20rem;
+    padding: 0 5rem 3.5rem 5rem;
+    border-bottom: .3rem solid rgba(133, 15, 15, 0);
+    margin-bottom: 1rem;
 }
