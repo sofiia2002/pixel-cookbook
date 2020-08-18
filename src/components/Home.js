@@ -62,7 +62,6 @@ class Home extends Component {
             className={HomePage.logo}
             alt=""
           />
-
           </div>
         </div>
       </div>

@@ -12,16 +12,23 @@ class NewRecipe extends Component {
             : NewRecipePage.container
         }
       >
-        <div className={
+        <div
+          className={
             this.props.show
               ? ` ${NewRecipePage.nav} ${NewRecipePage.selected}`
               : NewRecipePage.nav
-          } onClick={this.props.action}>
+          }
+          onClick={this.props.action}
+        >
           <img
             src={require("../images/feather.png")}
             className={NewRecipePage.img}
             alt=""
           />
+        </div>
+
+        <div className={NewRecipePage.bodyContainer}>
+          <div class={NewRecipePage.header}>Recipe</div>
         </div>
       </div>
     );
