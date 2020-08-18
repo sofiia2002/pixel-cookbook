@@ -101,7 +101,7 @@
   border: 2px dashed  rgb(220, 191, 156);
   background-color: rgb(242, 232, 220);
   overflow: auto;
-  padding: 2rem 1rem;
+  padding: 2rem 1.5rem;
 }
 
 /*-----------------------------------------------
@@ -129,6 +129,7 @@
     border: 3px dotted rgba(155, 136, 113, 0.397);
     border-radius: 5px;
     top: 5.4rem;
+    left: .8rem;
     width: 22rem;
 }
 

@@ -100,5 +100,140 @@
   border: 2px dashed  rgb(220, 191, 156);
   background-color: rgb(242, 232, 220);
   overflow: auto;
-  padding: 2rem 1rem;
+  padding: 2rem 1.5rem;
+}
+
+
+/*-----------------------------------------------
+                    Fields
+-----------------------------------------------*/
+
+.fields{
+  margin-top: 1rem;
+  display: flexbox;
+}
+
+.fields>*{
+    margin-bottom: 1rem;
+}
+
+.fields>*>*{
+   display: flex;
+   align-items: center;
+}
+
+.fields>*:nth-child(2)> textarea{
+    height: 7rem;
+    resize: none;
+    padding: 0.3rem 0.4rem;
+}
+
+.fields input,
+.fields textarea{
+    margin-top: 0.2rem;
+    font-size: .8rem;
+    width: 100%;
+    outline: none;
+    background-color: transparent;
+    border: 1px dashed rgb(131, 22, 22);
+    border-radius: 5px;
+    padding: 0.3rem 0.4rem;
+}
+
+.fields>*>*> input + div{
+    font-size: .85rem;
+    padding: 4px 10px;
+    margin-left: 10px;
+    background-color: rgb(131, 22, 22);
+    color: rgb(250, 217, 191);
+    border-radius: 15px;
+}
+
+.fields>*>*> input + div:hover{
+    cursor: pointer;
+}
+
+.buttons{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    align-items: center;
+}
+
+.buttons>*{
+    display: flexbox;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    color: rgb(131, 22, 22);
+    width: 9rem;
+    height: 3rem;
+    text-transform: uppercase;
+    border: 3px dashed rgb(131, 22, 22);
+    border-radius: 10px;
+}
+
+.fields>*:last-child>*:hover{
+    cursor: pointer;
+    box-shadow: 0 0 8px rgba(131, 22, 22, 0.132);;
+}
+
+.timeFields{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 2rem;
+}
+
+.timeFields input{
+    outline: none;
+    border:none;
+}
+
+.timeFields>*{
+    display: flexbox;
+    flex-direction: column;
+    align-items: center;
+}
+
+.timeFields>*>*:nth-child(2){
+    display: flex;
+    align-items: center;
+    border: 1px dashed rgb(131, 22, 22);
+    border-radius: 5px;
+    padding: 0 .5rem;
+    width: 9rem;
+}
+
+::placeholder{
+    color: rgba(131, 22, 22, 0.404);
+}
+
+
+/*-----------------------------------------------
+                ELEMENTS
+-----------------------------------------------*/
+
+.elements{
+    display: flexbox;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: .9rem;
+    margin: 1rem .5rem;
+    width: 100%;
+}
+
+.elements>*{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: .5rem;
+    align-items: center;
+}
+
+.elements>*>*:nth-child(1){
+    padding: .5rem 1rem;
+    width: 2.5rem;
+    background-color: rgb(237, 220, 201);
+    margin-right: .5rem;
+    border-radius: 20px;
 }

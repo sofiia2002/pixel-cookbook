@@ -26,7 +26,7 @@ class Cookbook extends Component {
         </div>
         <div className={CookbookPage.bookmark}></div>
         <div className={CookbookPage.bodyContainer}>
-          <div class={CookbookPage.header}>Cookbook</div>
+          <div className={CookbookPage.header}>Cookbook</div>
         </div>
       </div>
     );

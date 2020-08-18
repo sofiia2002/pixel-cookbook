@@ -27,8 +27,8 @@ class Home extends Component {
           />
         </div>
         <div className={HomePage.bodyContainer}>
-        <div class={HomePage.header}>Home</div>
-          <div class={HomePage.headerText}>
+        <div className={HomePage.header}>Home</div>
+          <div className={HomePage.headerText}>
             <div>Welcome</div>
           </div>
           <div className={HomePage.photoContainer}>
