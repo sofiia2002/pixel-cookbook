@@ -73,6 +73,7 @@ class App extends Component {
         <Home 
           action={this.handlerHome} 
           show = {this.state.homeClick}
+          toCreateRecipe = {this.handlerNewRecipe}
         />
         <NewRecipe 
           action={this.handlerNewRecipe} 

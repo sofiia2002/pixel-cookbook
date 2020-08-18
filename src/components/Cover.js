@@ -24,11 +24,12 @@ class Cover extends Component {
         id="containerCover"
       >
         <div className={CoverPage.title}>Cookbook</div>
-        <img
+        {/* <img
           src={require("../images/coverPhoto.png")}
           className={CoverPage.img}
           alt=""
         />
+        <a href="https://www.vecteezy.com/free-vector/food-app-icon"></a> */}
       </div>
     );
   }

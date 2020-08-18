@@ -1,3 +1,7 @@
+/*-----------------------------------------------
+                     DEFAULT
+-----------------------------------------------*/
+
 .container{
     position: absolute;
     top: 50%;
@@ -19,6 +23,10 @@
     z-index: 5;
     transition: transform .4s;
 }
+
+/*-----------------------------------------------
+                     NAV
+-----------------------------------------------*/
 
 .nav{
     position: absolute;
@@ -53,4 +61,118 @@
     top: .55rem;
     right: -1.65rem;
     width: 2.4rem;
+}
+
+/*-----------------------------------------------
+                   HEADER
+-----------------------------------------------*/
+
+.header{
+    font-size: 1.2rem;
+    position: fixed;
+    top: 1.48rem;
+    left: 9.87rem;
+    color: rgb(157, 134, 106);
+    background-color: rgb(242, 232, 220);
+    text-align: center;
+    line-height: 2.8rem;
+    padding: 0 2.1rem;
+    border-radius: 32px;
+}
+
+/*-----------------------------------------------
+                    BODY
+-----------------------------------------------*/
+
+.bodyContainer{
+  position: absolute;
+  display: flex-box;
+  justify-content: center;
+  align-items: center;
+  top: 8%;
+  left: 6%;
+  height: 84%;
+  width: 88%;
+  border-radius: 10px;
+  border: 2px dashed  rgb(220, 191, 156);
+  background-color: rgb(242, 232, 220);
+}
+
+/*-----------------------------------------------
+                    PHOTOS
+-----------------------------------------------*/
+
+.photoContainer{
+    position: absolute;
+    padding: .5rem;
+    background-color: rgba(203, 179, 149, 0.585);
+    border: 3px dotted rgba(155, 136, 113, 0.397);
+    border-radius: 5px;
+    top: 6rem;
+    left: .8rem;
+    width: 22.4rem;
+}
+
+.photo{
+    width: 21.2rem;
+}
+
+
+/*-----------------------------------------------
+                    TEXT
+-----------------------------------------------*/
+
+.titleText{
+    font-size: 1.4rem;
+    color: rgb(133, 15, 15);
+    text-transform: uppercase;
+}
+
+.titleText>*{
+    position: absolute;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.titleText>*:nth-child(1){
+    top: 1.5rem;
+    left: 6rem;
+    transform: rotate(0.5deg);
+    width: 6.5rem;
+}
+
+.titleText>*:nth-child(2){
+    top: 1.5rem;
+    left: 11.6rem;
+    width: 6.5rem;
+    transform: rotate(-.5deg);
+}
+
+.titleText>*:nth-child(3){
+    top: 3.2rem;
+    left: 2.4rem;
+    letter-spacing: .6rem;
+    width: 20rem;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.titleText>*:last-child{
+    position: absolute;
+    left: 3.8rem;
+    top: 25.3rem;
+    width: 17rem;
+    font-size: 1.9rem;
+    text-align: center;
+    background-color: rgb(247, 236, 219);
+    border: 3.5px dashed rgba(114, 22, 15, 0.822);
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(133, 15, 15, 0.212);
+    transition: box-shadow .2s;
+}
+
+.titleText>*:last-child:hover{
+    cursor: pointer;
+    box-shadow: 0 0 8px rgba(133, 15, 15, 0.412);
+    transition: box-shadow .2s;
 }
