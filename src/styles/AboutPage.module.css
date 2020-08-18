@@ -143,6 +143,7 @@
 -----------------------------------------------*/
 
 .bodyContainer{
+  z-index: 1;
   position: absolute;
   display: flex-box;
   justify-content: center;
