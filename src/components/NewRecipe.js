@@ -88,7 +88,7 @@ class NewRecipe extends Component {
                   this.setState({ ingredient: e.target.value });
                 }}
                 onKeyDown={(e) => {
-                  if (e.keyCode === 13) {
+                  if (e.keyCode === 13 && this.state.ingredient.replace(/ /g, "")!=="") {
                     this.state.ingredients.push(this.state.ingredient);
                     this.setState({ ingredient: "" });
                   }
@@ -113,7 +113,7 @@ class NewRecipe extends Component {
                   this.setState({ direction: e.target.value });
                 }}
                 onKeyDown={(e) => {
-                  if (e.keyCode === 13) {
+                  if (e.keyCode === 13 && this.state.direction.replace(/ /g, "")!=="") {
                     this.state.directions.push(this.state.direction);
                     this.setState({ direction: "" });
                   }
