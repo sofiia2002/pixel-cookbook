@@ -220,7 +220,7 @@
     align-items: flex-start;
     font-size: .9rem;
     margin: 1rem .5rem;
-    width: 100%;
+    width: 21.2rem;
 }
 
 .elements>*{
@@ -228,12 +228,26 @@
     flex-direction: row;
     margin-bottom: .5rem;
     align-items: center;
+    justify-content: space-between;
+}
+
+.elements>*>*:nth-child(2){
+    width: 16rem;
+}
+
+.elements>*>*:last-child{
+    width: 2rem;
+    color: rgb(90, 14, 14);
+}
+
+.elements>*>*:last-child:hover{
+    cursor: pointer;
 }
 
 .elements>*>*:nth-child(1){
-    padding: .5rem 1rem;
-    width: 2.5rem;
+    padding: .3rem .8rem;
+    width: 2rem;
     background-color: rgb(237, 220, 201);
-    margin-right: .5rem;
+    margin-right: .8rem;
     border-radius: 20px;
 }

@@ -137,3 +137,35 @@
   overflow: auto;
   padding: 2rem 1rem;
 }
+
+/*-----------------------------------------------
+                   RECIPES
+-----------------------------------------------*/
+
+.recipes{
+    display: flexbox;
+    flex-direction: column;
+    margin: 2rem 2rem;
+}
+
+.recipe{
+    display: flexbox;
+    flex-direction: column;
+    border-radius: 5px;
+    border: 3px dashed rgb(131, 22, 22);
+    padding: .5rem 1rem;
+    margin-bottom: 2rem;
+}
+
+.title{
+    font-size: 1.3rem;
+    line-height: 1.5rem;
+    color: black;
+    margin-bottom: .5rem;
+}
+
+.description{
+    font-size: .6rem;
+    line-height: .65rem;
+    color: rgba(53, 19, 0, 0.548);
+}

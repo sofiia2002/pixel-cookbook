@@ -13,7 +13,6 @@ class Cover extends Component {
     const empty = keys.filter(
       (item) => this.props.dataFromParent[item] === false
     );
-    console.log(empty);
     return empty.length === 4;
   };
 

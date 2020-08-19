@@ -1,17 +1,18 @@
 import React, { Component } from "react";
 import NewRecipePage from "../styles//NewRecipePage.module.css";
 
-function AddElement({ index, element }) {
-  console.log(index);
+function AddElement({ index, element, removeElement }) {
   return (
     <div>
       <div>{index+1}</div>
       <div>{element}</div>
+      <div onClick={() => removeElement(index)} className="far fa-trash"></div>
     </div>
   );
 }
 
 class NewRecipe extends Component {
+  
   state = {
     title: "",
     description: "",
@@ -20,8 +21,20 @@ class NewRecipe extends Component {
     direction: "",
     directions: [],
     prep: "",
-    cook: "",
-    submit: false,
+    cook: ""
+  };
+
+
+  removeDirection = index => {
+    const newDirections = this.state.directions;
+    newDirections.splice(index, 1);
+    this.setState({directions : newDirections})
+  };
+
+  removeIngredient = index => {
+    const newIngredients = this.state.ingredients;
+    newIngredients.splice(index, 1);
+    this.setState({ingredients : newIngredients})
   };
 
   render() {
@@ -77,7 +90,7 @@ class NewRecipe extends Component {
               <div>Ingredients</div>
               <div className={NewRecipePage.elements}>
                 {this.state.ingredients.map((element, index) => (
-                  <AddElement key={index} element={element} index={index} />
+                  <AddElement key={index} element={element} index={index} removeElement={this.removeIngredient} />
                 ))}
               </div>
               <input
@@ -99,11 +112,10 @@ class NewRecipe extends Component {
             <div>
               <div>Directions</div>
               <div className={NewRecipePage.elements}>
-                {this.state.directions.map(function(element, index) {
-                  return(
-                  <AddElement key={index} element={element} index={index}/>
-                  );
-                })}
+                {this.state.directions.map((element, index) =>(
+                  <AddElement key={index} element={element} index={index} removeElement={this.removeDirection}/>
+                  )
+                )}
               </div>
               <input
                 placeholder="Write a direction and press Enter"
@@ -162,8 +174,17 @@ class NewRecipe extends Component {
             <div className={NewRecipePage.buttons}>
               <div
                 onClick={() => {
-                  this.setState({ submit: true });
-                  console.log(this.state);
+                  this.props.addRecipes(this.state);
+                  this.setState({
+                    title: "",
+                    description: "",
+                    ingredient: "",
+                    ingredients: [],
+                    direction: "",
+                    directions: [],
+                    prep: "",
+                    cook: ""
+                  });
                 }}
               >
                 Add recipe
@@ -179,8 +200,7 @@ class NewRecipe extends Component {
                     direction: "",
                     directions: [],
                     prep: "",
-                    cook: "",
-                    submit: false,
+                    cook: ""
                   });
                 }}
               >

@@ -15,6 +15,7 @@ class App extends Component {
       newRecipeClick: false,
       cookbookClick: false,
       aboutClick: false,
+      recipes: [],
     }
   }
 
@@ -63,6 +64,12 @@ class App extends Component {
     });
   }
 
+  handleAddingRecipes = (recipe) => {
+    let newRecipes = this.state.recipes;
+    newRecipes.push(recipe);
+    this.setState({recipes: newRecipes});
+  }
+
 
   render() { 
     return (
@@ -73,18 +80,19 @@ class App extends Component {
         <Home 
           action={this.handlerHome} 
           show = {this.state.homeClick}
-          toCreateRecipe = {this.handlerNewRecipe}
         />
         <NewRecipe 
           action={this.handlerNewRecipe} 
           show = {this.state.newRecipeClick}
+          addRecipes={this.handleAddingRecipes}
         />
         <Cookbook 
           action={this.handlerCookbook}
           show = {this.state.cookbookClick}
+          recipes={this.state.recipes}
         />
         <About 
-          action={this.handlerAbout} 
+          action = {this.handlerAbout}
           show = {this.state.aboutClick}
           close = {this.closeBook}
         />
