@@ -1,18 +1,78 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import CookbookPage from "../styles/CookbookPage.module.css";
 
-function AddRecipe ({ element }){
+function AddIngredient({ element, index }) {
   return (
-    <div className={CookbookPage.recipe}>
-      <div className={CookbookPage.title}>{element.title}</div>
-      <div className={CookbookPage.description}>{element.description}</div>
+    <div>
+      <div>{index + 1}</div>
+      <div>{element}</div>
     </div>
-  )
+  );
+}
+
+function AddStep({ element, index }) {
+  return (
+    <div>
+      <div>Step {index + 1}</div>
+      <div>{element}</div>
+    </div>
+  );
+}
+
+function AddRecipe({ element, index }) {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div
+      className={
+        open
+          ? `${CookbookPage.recipe} ${CookbookPage.open}`
+          : `${CookbookPage.recipe} ${CookbookPage.close}`
+      }
+      onClick={() => setOpen(!open)}
+    >
+      <div className={CookbookPage.front}>
+        <div className="fas fa-angle-down"></div>
+      </div>
+      <div>
+        <div className={CookbookPage.title}>{element.title}</div>
+        <div className={CookbookPage.description}>{element.description}</div>
+        <div className={CookbookPage.time}>
+          <div>
+            Preparation time: <span>{element.prep}</span> min
+          </div>
+          <div>
+            Cooking time: <span>{element.cook}</span> min
+          </div>
+          <div>
+            Total: <span>{parseInt(element.prep) + parseInt(element.cook)}</span> min
+          </div>
+        </div>
+        <div className={CookbookPage.ingredients}>
+          <div>Ingredients</div>
+          <div>
+            {element.ingredients.map((element, index) => (
+              <AddIngredient key={index} element={element} index={index} />
+            ))}
+          </div>
+        </div>
+        <div className={CookbookPage.directions}>
+          <div>Directions</div>
+          <div>
+            {element.directions.map((element, index) => (
+              <AddStep key={index} element={element} index={index} />
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
 
 class Cookbook extends Component {
   state = {
-    recipes: this.props.recipes
+    recipes: this.props.recipes,
+    openedRecipe: 0,
   };
 
   render() {
@@ -24,26 +84,32 @@ class Cookbook extends Component {
             : CookbookPage.container
         }
       >
-        <div className={
+        <div
+          className={
             this.props.show
               ? ` ${CookbookPage.nav} ${CookbookPage.selected}`
               : CookbookPage.nav
-          } onClick={this.props.action}>
+          }
+          onClick={this.props.action}
+        >
           <img
             src={require("../images/cookbook.png")}
             className={CookbookPage.img}
             alt=""
           />
         </div>
-        <div className={CookbookPage.bookmark} onClick={() => 
-            console.log(this.state.recipes)}></div>
+        <div
+          className={CookbookPage.bookmark}
+          onClick={() => console.log(this.state.recipes)}
+        ></div>
         <div className={CookbookPage.bodyContainer}>
           <div className={CookbookPage.header}>Cookbook</div>
-
-          <div className={Cookbook.recipes}>
-            {this.state.recipes.map((element, index) => (
-              <AddRecipe key={index} element={element} index={index}/>
-            ))}
+          <div className={CookbookPage.pageBlock}>
+            <div className={Cookbook.recipes}>
+              {this.state.recipes.map((element, index) => (
+                <AddRecipe key={index} element={element} index={index} />
+              ))}
+            </div>
           </div>
         </div>
       </div>

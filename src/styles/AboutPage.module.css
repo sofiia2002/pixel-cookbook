@@ -158,3 +158,13 @@
   overflow: auto;
   padding: 2rem 1rem;
 }
+
+.pageBlock{
+    position: absolute;
+    left: 0;
+    top: 5%;
+    height: 90%;
+    width: 99%;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }

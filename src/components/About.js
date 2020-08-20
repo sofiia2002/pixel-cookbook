@@ -26,11 +26,12 @@ class About extends Component {
             alt=""
           />
         </div>
-        <div className={AboutPage.bookmark}></div>
+        <div className={AboutPage.bookmark} onClick={this.props.close}></div>
         <div className={AboutPage.bodyContainer}>
           <div className={AboutPage.header}>About</div>
         </div>
-        <div className={AboutPage.bookmark} onClick={this.props.close}></div>
+        <div className={AboutPage.pageBlock}>
+        </div>
       </div>
     );
   }

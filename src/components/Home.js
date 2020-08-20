@@ -55,7 +55,7 @@ class Home extends Component {
                 Here you can add recipes in "Add recipe" category add manage
                 them in "Cookbook" category. Also here you can read a little bit
                 about developers in "About" category. <br /> <br />
-                We are wishing you to have a good time dealing with this
+                We wish you to have a good time dealing with this
                 authentic cookbook!
               </p>
             </div>
