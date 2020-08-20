@@ -22,9 +22,8 @@ class NewRecipe extends Component {
     prep: "",
     cook: "",
     hint: "one",
-    showHint: "true"
+    showHint: "true",
   };
-
 
   removeDirection = (index) => {
     const newDirections = this.state.directions;
@@ -39,7 +38,6 @@ class NewRecipe extends Component {
   };
 
   render() {
-
     return (
       <div
         className={
@@ -64,197 +62,252 @@ class NewRecipe extends Component {
         </div>
 
         <div className={NewRecipePage.bodyContainer}>
-          <div className={NewRecipePage.header}>Recipe</div>
-          <div className={this.state.showHint ? ` ${NewRecipePage.hint} ${NewRecipePage.show}` :  ` ${NewRecipePage.hint} ${NewRecipePage.hide}`}>
-            <div 
-              className={this.state.showHint ? NewRecipePage.showHint : NewRecipePage.hideHint}
-              onClick={() => {this.setState({showHint: !this.state.showHint})}}
-            ></div>
-            <div className={this.state.hint==="one" ? NewRecipePage.one : this.state.hint==="two" ? NewRecipePage.two : NewRecipePage.three}>
-              <div>Here you can add a new recipe to your cookbook.</div>
-              <div>
-                To be able to submit the recipe you MUST enter the title, add
-                some directions and ingredients.
-              </div>
-              <div>
-                After clicking "Add recipe", new recipe will automaticly appear
-                in your Cookbook.
-              </div>
-            </div>
-            <div>
-              <div 
-                className={this.state.hint==="one" ? NewRecipePage.unclicable : NewRecipePage.clicable}
-                onClick={()=>{
-                  if (this.state.hint==="two"){
-                    this.setState({hint:"one"})
-                  } else if (this.state.hint==="three"){
-                    this.setState({hint:"two"})
-                  }
-                }}
-              >
-                <i className="fa fa-angle-left"></i>
-              </div>
-              <div 
-                className={this.state.hint==="three" ? NewRecipePage.unclicable : NewRecipePage.clicable}
-                onClick={()=>{
-                  if (this.state.hint==="one"){
-                    this.setState({hint:"two"})
-                  } else if (this.state.hint==="two"){
-                    this.setState({hint:"three"})
-                  }
-                }}
-              >
-                <i className="fa fa-angle-right"></i>
-              </div>
-            </div>
-          </div>
-          <div className={NewRecipePage.fields}>
-            <div>
-              <div>Recipe title</div>
-              <input
-                value={this.state.title}
-                onChange={(e) => {
-                  this.setState({ title: e.target.value });
-                }}
-                placeholder="Write a title of recipe"
-              />
-            </div>
-
-            <div>
-              <div>Description</div>
-              <textarea
-                placeholder="Write a discription of recipe"
-                value={this.state.description}
-                onChange={(e) => {
-                  this.setState({ description: e.target.value });
-                }}
-              />
-            </div>
-
-            <div>
-              <div>Ingredients</div>
-              <div className={NewRecipePage.elements}>
-                {this.state.ingredients.map((element, index) => (
-                  <AddElement
-                    key={index}
-                    element={element}
-                    index={index}
-                    removeElement={this.removeIngredient}
-                  />
-                ))}
-              </div>
-              <input
-                placeholder="Write an ingredient and press Enter"
-                type="text"
-                value={this.state.ingredient}
-                onChange={(e) => {
-                  this.setState({ ingredient: e.target.value });
-                }}
-                onKeyDown={(e) => {
-                  if (
-                    e.keyCode === 13 &&
-                    this.state.ingredient.replace(/ /g, "") !== ""
-                  ) {
-                    this.state.ingredients.push(this.state.ingredient);
-                    this.setState({ ingredient: "" });
-                  }
-                }}
-              />
-            </div>
-
-            <div>
-              <div>Directions</div>
-              <div className={NewRecipePage.elements}>
-                {this.state.directions.map((element, index) => (
-                  <AddElement
-                    key={index}
-                    element={element}
-                    index={index}
-                    removeElement={this.removeDirection}
-                  />
-                ))}
-              </div>
-              <input
-                placeholder="Write a direction and press Enter"
-                type="text"
-                value={this.state.direction}
-                onChange={(e) => {
-                  this.setState({ direction: e.target.value });
-                }}
-                onKeyDown={(e) => {
-                  if (
-                    e.keyCode === 13 &&
-                    this.state.direction.replace(/ /g, "") !== ""
-                  ) {
-                    this.state.directions.push(this.state.direction);
-                    this.setState({ direction: "" });
-                  }
-                }}
-              />
-            </div>
-
-            <div className={NewRecipePage.timeFields}>
-              <div>
-                <div>Prep time</div>
-                <div>
-                  <input
-                    type="text"
-                    placeholder="0"
-                    value={this.state.prep}
-                    onChange={(e) => {
-                      const check = /^[0-9\b]+$/;
-                      if (e.target.value === "" || check.test(e.target.value)) {
-                        this.setState({ prep: e.target.value });
-                      }
-                    }}
-                  />
-                  <div>min</div>
-                </div>
-              </div>
-
-              <div>
-                <div>Cook time</div>
-                <div>
-                  <input
-                    type="text"
-                    placeholder="0"
-                    value={this.state.cook}
-                    onChange={(e) => {
-                      const check = /^[0-9\b]+$/;
-                      if (e.target.value === "" || check.test(e.target.value)) {
-                        this.setState({ cook: e.target.value });
-                      }
-                    }}
-                  />
-                  <div>min</div>
-                </div>
-              </div>
-            </div>
-
-            <div className={NewRecipePage.buttons}>
+          <div className={NewRecipePage.pageBlock}>
+            <div className={NewRecipePage.header}>Recipe</div>
+            <div
+              className={
+                this.state.showHint
+                  ? ` ${NewRecipePage.hint} ${NewRecipePage.show}`
+                  : ` ${NewRecipePage.hint} ${NewRecipePage.hide}`
+              }
+            >
               <div
                 className={
-                  this.state.title.replace(/ /g, "") !== "" &&
-                  this.state.ingredients.length !== 0 &&
-                  this.state.directions.length !== 0
-                    ? NewRecipePage.able
-                    : NewRecipePage.disable
+                  this.state.showHint
+                    ? NewRecipePage.showHint
+                    : NewRecipePage.hideHint
                 }
                 onClick={() => {
-                  if (
+                  this.setState({ showHint: !this.state.showHint });
+                }}
+              ></div>
+              <div
+                className={
+                  this.state.hint === "one"
+                    ? NewRecipePage.one
+                    : this.state.hint === "two"
+                    ? NewRecipePage.two
+                    : NewRecipePage.three
+                }
+              >
+                <div>Here you can add new recipe to your cookbook.</div>
+                <div>
+                  To be able to submit the recipe you MUST enter the title, add
+                  some directions and ingredients.
+                </div>
+                <div>
+                  After clicking "Add recipe", new recipe will automaticly
+                  appear in your Cookbook.
+                </div>
+              </div>
+              <div>
+                <div
+                  className={
+                    this.state.hint === "one"
+                      ? NewRecipePage.unclicable
+                      : NewRecipePage.clicable
+                  }
+                  onClick={() => {
+                    if (this.state.hint === "two") {
+                      this.setState({ hint: "one" });
+                    } else if (this.state.hint === "three") {
+                      this.setState({ hint: "two" });
+                    }
+                  }}
+                >
+                  <i className="fa fa-angle-left"></i>
+                </div>
+                <div
+                  className={
+                    this.state.hint === "three"
+                      ? NewRecipePage.unclicable
+                      : NewRecipePage.clicable
+                  }
+                  onClick={() => {
+                    if (this.state.hint === "one") {
+                      this.setState({ hint: "two" });
+                    } else if (this.state.hint === "two") {
+                      this.setState({ hint: "three" });
+                    }
+                  }}
+                >
+                  <i className="fa fa-angle-right"></i>
+                </div>
+              </div>
+            </div>
+            <div className={NewRecipePage.fields}>
+              <div>
+                <div>Recipe title</div>
+                <input
+                  value={this.state.title}
+                  onChange={(e) => {
+                    this.setState({ title: e.target.value });
+                  }}
+                  placeholder="Write a title of recipe"
+                />
+              </div>
+
+              <div>
+                <div>Description</div>
+                <textarea
+                  placeholder="Write a discription of recipe"
+                  value={this.state.description}
+                  onChange={(e) => {
+                    this.setState({ description: e.target.value });
+                  }}
+                />
+              </div>
+
+              <div>
+                <div>Ingredients</div>
+                <div className={NewRecipePage.elements}>
+                  {this.state.ingredients.map((element, index) => (
+                    <AddElement
+                      key={index}
+                      element={element}
+                      index={index}
+                      removeElement={this.removeIngredient}
+                    />
+                  ))}
+                </div>
+                <input
+                  placeholder="Write an ingredient and press Enter"
+                  type="text"
+                  value={this.state.ingredient}
+                  onChange={(e) => {
+                    this.setState({ ingredient: e.target.value });
+                  }}
+                  onKeyDown={(e) => {
+                    if (
+                      e.keyCode === 13 &&
+                      this.state.ingredient.replace(/ /g, "") !== ""
+                    ) {
+                      this.state.ingredients.push(this.state.ingredient);
+                      this.setState({ ingredient: "" });
+                    }
+                  }}
+                />
+              </div>
+
+              <div>
+                <div>Directions</div>
+                <div className={NewRecipePage.elements}>
+                  {this.state.directions.map((element, index) => (
+                    <AddElement
+                      key={index}
+                      element={element}
+                      index={index}
+                      removeElement={this.removeDirection}
+                    />
+                  ))}
+                </div>
+                <input
+                  placeholder="Write a direction and press Enter"
+                  type="text"
+                  value={this.state.direction}
+                  onChange={(e) => {
+                    this.setState({ direction: e.target.value });
+                  }}
+                  onKeyDown={(e) => {
+                    if (
+                      e.keyCode === 13 &&
+                      this.state.direction.replace(/ /g, "") !== ""
+                    ) {
+                      this.state.directions.push(this.state.direction);
+                      this.setState({ direction: "" });
+                    }
+                  }}
+                />
+              </div>
+
+              <div className={NewRecipePage.timeFields}>
+                <div>
+                  <div>Prep time</div>
+                  <div>
+                    <input
+                      type="text"
+                      placeholder="0"
+                      value={this.state.prep}
+                      onChange={(e) => {
+                        const check = /^[0-9\b]+$/;
+                        if (
+                          e.target.value === "" ||
+                          check.test(e.target.value)
+                        ) {
+                          this.setState({ prep: e.target.value });
+                        }
+                      }}
+                    />
+                    <div>min</div>
+                  </div>
+                </div>
+
+                <div>
+                  <div>Cook time</div>
+                  <div>
+                    <input
+                      type="text"
+                      placeholder="0"
+                      value={this.state.cook}
+                      onChange={(e) => {
+                        const check = /^[0-9\b]+$/;
+                        if (
+                          e.target.value === "" ||
+                          check.test(e.target.value)
+                        ) {
+                          this.setState({ cook: e.target.value });
+                        }
+                      }}
+                    />
+                    <div>min</div>
+                  </div>
+                </div>
+              </div>
+
+              <div className={NewRecipePage.buttons}>
+                <div
+                  className={
                     this.state.title.replace(/ /g, "") !== "" &&
                     this.state.ingredients.length !== 0 &&
                     this.state.directions.length !== 0
-                  ) {
-                    const recipe = {
-                      title: this.state.title,
-                      description: this.state.description,
-                      ingredients: this.state.ingredients,
-                      directions: this.state.directions,
-                      prep: this.state.prep,
-                      cook: this.state.cook,
+                      ? NewRecipePage.able
+                      : NewRecipePage.disable
+                  }
+                  onClick={() => {
+                    if (
+                      this.state.title.replace(/ /g, "") !== "" &&
+                      this.state.ingredients.length !== 0 &&
+                      this.state.directions.length !== 0
+                    ) {
+                      const recipe = {
+                        title: this.state.title,
+                        description: this.state.description,
+                        ingredients: this.state.ingredients,
+                        directions: this.state.directions,
+                        prep: this.state.prep,
+                        cook: this.state.cook,
+                      };
+                      this.props.addRecipes(recipe);
+                      this.setState({
+                        title: "",
+                        description: "",
+                        ingredient: "",
+                        ingredients: [],
+                        direction: "",
+                        directions: [],
+                        prep: "",
+                        cook: "",
+                        hint: "one",
+                      });
                     }
-                    this.props.addRecipes(recipe);
+                  }}
+                >
+                  Add recipe
+                </div>
+
+                <div
+                  className={NewRecipePage.able}
+                  onClick={() => {
                     this.setState({
                       title: "",
                       description: "",
@@ -266,29 +319,10 @@ class NewRecipe extends Component {
                       cook: "",
                       hint: "one",
                     });
-                  }
-                }}
-              >
-                Add recipe
-              </div>
-
-              <div
-                className={NewRecipePage.able}
-                onClick={() => {
-                  this.setState({
-                    title: "",
-                    description: "",
-                    ingredient: "",
-                    ingredients: [],
-                    direction: "",
-                    directions: [],
-                    prep: "",
-                    cook: "",
-                    hint: "one",
-                  });
-                }}
-              >
-                Clear
+                  }}
+                >
+                  Clear
+                </div>
               </div>
             </div>
           </div>

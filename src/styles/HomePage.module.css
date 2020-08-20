@@ -100,8 +100,17 @@
   border-radius: 5px;
   border: 2px dashed  rgb(220, 191, 156);
   background-color: rgb(242, 232, 220);
-  overflow: auto;
   padding: 2rem 1.5rem;
+}
+
+.pageBlock{
+  position: absolute;
+  left: 0;
+  top: 5%;
+  height: 90%;
+  width: 99%;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 /*-----------------------------------------------
@@ -110,7 +119,7 @@
 
 .headerText{
     position: absolute;
-    top: 2rem;
+    top: 1rem;
     left: 7.1rem;
     color: rgb(133, 15, 15);
     font-size: 1.9rem;
@@ -128,7 +137,7 @@
     background-color: rgba(203, 179, 149, 0.585);
     border: 3px dotted rgba(155, 136, 113, 0.397);
     border-radius: 5px;
-    top: 5.4rem;
+    top: 4.9rem;
     left: .8rem;
     width: 22rem;
 }
@@ -208,8 +217,11 @@ p{
     position: relative;
     font-size: .85rem;
     line-height: 1.2rem;
+    width: 79%;
     top: 31.5rem;
+    left: 11%;
     text-align: center;
+    height: 19rem;
 }
 
 /*-----------------------------------------------

@@ -105,15 +105,27 @@
 }
 
 
+.pageBlock{
+    position: absolute;
+    left: 1%;
+    top: 5%;
+    height: 90%;
+    width: 98%;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+
 /*-----------------------------------------------
                      HINT
 -----------------------------------------------*/
 
 .hint{
     background-color: rgba(220, 191, 156, 0.401);
-    width: 19rem;
+    margin-left: 1.5rem;
+    margin-bottom: 1.6rem;
+    width: 90%;
     height: 9rem;
-    margin: 0rem 1rem 1rem 1rem;
     overflow: hidden;
     border-radius: 15px;
     transition: height .2s;
@@ -125,13 +137,13 @@
 }
 
 .hint>*:nth-child(2){
-    font-size: .6rem;
+    font-size: .7rem;
     text-align: center;
     align-items: center;
     display: flex;
     flex-direction: row;
     height: 9rem;
-    width: 55.5rem;
+    width: 61.5rem;
     justify-content: space-around;
 }
 
@@ -141,12 +153,12 @@
 }
 
 .two{
-    transform: translateX(-18.3rem);
+    transform: translateX(-20.3rem);
     transition: transform .3s;
 }
 
 .three{
-    transform: translateX(-36.7rem);
+    transform: translateX(-40.7rem);
     transition: transform .3s;
 }
 
@@ -157,7 +169,7 @@
     display: flex;
     justify-content: center;
     justify-content: space-evenly;
-    width:28rem;
+    width:30rem;
 }
 
 .hint>*>*{
@@ -176,8 +188,8 @@
 
 .showHint{
     position: absolute;
-    top: 2.4rem;
-    right: 2.4rem;
+    top: .1rem;
+    right: .85rem;
     padding: .2rem .6rem;
     background-color: transparent;
     cursor: pointer;
@@ -186,8 +198,8 @@
 
 .hideHint{
     position: absolute;
-    top: 1.4rem;
-    right: 1.2rem;
+    top: .15rem;
+    right: .85rem;
     padding: .2rem .6rem;
     background-color: rgba(220, 191, 156, 0.401);
     border-radius: 10px;
@@ -221,7 +233,9 @@
 -----------------------------------------------*/
 
 .fields{
-  margin-top: 1rem;
+  position: relative;
+  width: 90%;
+  left: 6%;
   display: flexbox;
 }
 
