@@ -99,8 +99,120 @@
   border-radius: 5px;
   border: 2px dashed  rgb(220, 191, 156);
   background-color: rgb(242, 232, 220);
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
   padding: 2rem 1.5rem;
+}
+
+
+/*-----------------------------------------------
+                     HINT
+-----------------------------------------------*/
+
+.hint{
+    background-color: rgba(220, 191, 156, 0.401);
+    width: 19rem;
+    height: 9rem;
+    margin: 0rem 1rem 1rem 1rem;
+    overflow: hidden;
+    border-radius: 15px;
+    transition: height .2s;
+}
+
+.hide{
+    height: 0;
+    transition: height .2s;
+}
+
+.hint>*:nth-child(2){
+    font-size: .6rem;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    height: 9rem;
+    width: 55.5rem;
+    justify-content: space-around;
+}
+
+.one{
+    transform: translateX(0);
+    transition: transform .3s;
+}
+
+.two{
+    transform: translateX(-18.3rem);
+    transition: transform .3s;
+}
+
+.three{
+    transform: translateX(-36.7rem);
+    transition: transform .3s;
+}
+
+.hint>*:nth-child(3){
+    position: relative;
+    color: rgba(0, 0, 0, 0.336);
+    top: -5.3rem;
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+    width:28rem;
+}
+
+.hint>*>*{
+    width: 10rem;
+}
+
+.clicable{
+    color: rgba(95, 14, 14, 0.436);
+    cursor: pointer;
+}
+
+.unclicable{
+    color: rgba(0, 0, 0, 0.136);
+    cursor: default;
+}
+
+.showHint{
+    position: absolute;
+    top: 2.4rem;
+    right: 2.4rem;
+    padding: .2rem .6rem;
+    background-color: transparent;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.hideHint{
+    position: absolute;
+    top: 1.4rem;
+    right: 1.2rem;
+    padding: .2rem .6rem;
+    background-color: rgba(220, 191, 156, 0.401);
+    border-radius: 10px;
+    cursor: pointer;
+    z-index: 2;
+    transition: top .2s, right .2s;
+    transition-delay: .2s;
+}
+
+.hideHint::after{
+    content: "?";
+    color: rgba(95, 14, 14, 0.636);
+}
+
+.showHint::after{
+    content: "x";
+    color: rgba(95, 14, 14, 0.636);
+}
+
+.shideHint:hover::after{
+    cursor: pointer;
+}
+
+.showHint:hover::after{
+    cursor: pointer;
 }
 
 
@@ -173,9 +285,23 @@
     border-radius: 10px;
 }
 
-.fields>*:last-child>*:hover{
+.able{
+    color: rgb(131, 22, 22);
+    border: 3px dashed rgb(131, 22, 22);
+}
+
+.able:hover{
     cursor: pointer;
-    box-shadow: 0 0 8px rgba(131, 22, 22, 0.132);;
+    box-shadow: 0 0 8px rgba(131, 22, 22, 0.132)
+}
+
+.disable{
+    color: rgba(131, 22, 22, 0.24);
+    border: 3px dashed rgba(131, 22, 22, 0.24);
+}
+
+.disable:hover{
+    cursor: default;
 }
 
 .timeFields{

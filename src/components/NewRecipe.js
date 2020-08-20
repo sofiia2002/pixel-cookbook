@@ -4,7 +4,7 @@ import NewRecipePage from "../styles//NewRecipePage.module.css";
 function AddElement({ index, element, removeElement }) {
   return (
     <div>
-      <div>{index+1}</div>
+      <div>{index + 1}</div>
       <div>{element}</div>
       <div onClick={() => removeElement(index)} className="far fa-trash"></div>
     </div>
@@ -12,7 +12,6 @@ function AddElement({ index, element, removeElement }) {
 }
 
 class NewRecipe extends Component {
-  
   state = {
     title: "",
     description: "",
@@ -21,23 +20,26 @@ class NewRecipe extends Component {
     direction: "",
     directions: [],
     prep: "",
-    cook: ""
+    cook: "",
+    hint: "one",
+    showHint: "true"
   };
 
 
-  removeDirection = index => {
+  removeDirection = (index) => {
     const newDirections = this.state.directions;
     newDirections.splice(index, 1);
-    this.setState({directions : newDirections})
+    this.setState({ directions: newDirections });
   };
 
-  removeIngredient = index => {
+  removeIngredient = (index) => {
     const newIngredients = this.state.ingredients;
     newIngredients.splice(index, 1);
-    this.setState({ingredients : newIngredients})
+    this.setState({ ingredients: newIngredients });
   };
 
   render() {
+
     return (
       <div
         className={
@@ -63,6 +65,49 @@ class NewRecipe extends Component {
 
         <div className={NewRecipePage.bodyContainer}>
           <div className={NewRecipePage.header}>Recipe</div>
+          <div className={this.state.showHint ? ` ${NewRecipePage.hint} ${NewRecipePage.show}` :  ` ${NewRecipePage.hint} ${NewRecipePage.hide}`}>
+            <div 
+              className={this.state.showHint ? NewRecipePage.showHint : NewRecipePage.hideHint}
+              onClick={() => {this.setState({showHint: !this.state.showHint})}}
+            ></div>
+            <div className={this.state.hint==="one" ? NewRecipePage.one : this.state.hint==="two" ? NewRecipePage.two : NewRecipePage.three}>
+              <div>Here you can add a new recipe to your cookbook.</div>
+              <div>
+                To be able to submit the recipe you MUST enter the title, add
+                some directions and ingredients.
+              </div>
+              <div>
+                After clicking "Add recipe", new recipe will automaticly appear
+                in your Cookbook.
+              </div>
+            </div>
+            <div>
+              <div 
+                className={this.state.hint==="one" ? NewRecipePage.unclicable : NewRecipePage.clicable}
+                onClick={()=>{
+                  if (this.state.hint==="two"){
+                    this.setState({hint:"one"})
+                  } else if (this.state.hint==="three"){
+                    this.setState({hint:"two"})
+                  }
+                }}
+              >
+                <i className="fa fa-angle-left"></i>
+              </div>
+              <div 
+                className={this.state.hint==="three" ? NewRecipePage.unclicable : NewRecipePage.clicable}
+                onClick={()=>{
+                  if (this.state.hint==="one"){
+                    this.setState({hint:"two"})
+                  } else if (this.state.hint==="two"){
+                    this.setState({hint:"three"})
+                  }
+                }}
+              >
+                <i className="fa fa-angle-right"></i>
+              </div>
+            </div>
+          </div>
           <div className={NewRecipePage.fields}>
             <div>
               <div>Recipe title</div>
@@ -90,7 +135,12 @@ class NewRecipe extends Component {
               <div>Ingredients</div>
               <div className={NewRecipePage.elements}>
                 {this.state.ingredients.map((element, index) => (
-                  <AddElement key={index} element={element} index={index} removeElement={this.removeIngredient} />
+                  <AddElement
+                    key={index}
+                    element={element}
+                    index={index}
+                    removeElement={this.removeIngredient}
+                  />
                 ))}
               </div>
               <input
@@ -101,7 +151,10 @@ class NewRecipe extends Component {
                   this.setState({ ingredient: e.target.value });
                 }}
                 onKeyDown={(e) => {
-                  if (e.keyCode === 13 && this.state.ingredient.replace(/ /g, "")!=="") {
+                  if (
+                    e.keyCode === 13 &&
+                    this.state.ingredient.replace(/ /g, "") !== ""
+                  ) {
                     this.state.ingredients.push(this.state.ingredient);
                     this.setState({ ingredient: "" });
                   }
@@ -112,10 +165,14 @@ class NewRecipe extends Component {
             <div>
               <div>Directions</div>
               <div className={NewRecipePage.elements}>
-                {this.state.directions.map((element, index) =>(
-                  <AddElement key={index} element={element} index={index} removeElement={this.removeDirection}/>
-                  )
-                )}
+                {this.state.directions.map((element, index) => (
+                  <AddElement
+                    key={index}
+                    element={element}
+                    index={index}
+                    removeElement={this.removeDirection}
+                  />
+                ))}
               </div>
               <input
                 placeholder="Write a direction and press Enter"
@@ -125,7 +182,10 @@ class NewRecipe extends Component {
                   this.setState({ direction: e.target.value });
                 }}
                 onKeyDown={(e) => {
-                  if (e.keyCode === 13 && this.state.direction.replace(/ /g, "")!=="") {
+                  if (
+                    e.keyCode === 13 &&
+                    this.state.direction.replace(/ /g, "") !== ""
+                  ) {
                     this.state.directions.push(this.state.direction);
                     this.setState({ direction: "" });
                   }
@@ -173,24 +233,47 @@ class NewRecipe extends Component {
 
             <div className={NewRecipePage.buttons}>
               <div
+                className={
+                  this.state.title.replace(/ /g, "") !== "" &&
+                  this.state.ingredients.length !== 0 &&
+                  this.state.directions.length !== 0
+                    ? NewRecipePage.able
+                    : NewRecipePage.disable
+                }
                 onClick={() => {
-                  this.props.addRecipes(this.state);
-                  this.setState({
-                    title: "",
-                    description: "",
-                    ingredient: "",
-                    ingredients: [],
-                    direction: "",
-                    directions: [],
-                    prep: "",
-                    cook: ""
-                  });
+                  if (
+                    this.state.title.replace(/ /g, "") !== "" &&
+                    this.state.ingredients.length !== 0 &&
+                    this.state.directions.length !== 0
+                  ) {
+                    const recipe = {
+                      title: this.state.title,
+                      description: this.state.description,
+                      ingredients: this.state.ingredients,
+                      directions: this.state.directions,
+                      prep: this.state.prep,
+                      cook: this.state.cook,
+                    }
+                    this.props.addRecipes(recipe);
+                    this.setState({
+                      title: "",
+                      description: "",
+                      ingredient: "",
+                      ingredients: [],
+                      direction: "",
+                      directions: [],
+                      prep: "",
+                      cook: "",
+                      hint: "one",
+                    });
+                  }
                 }}
               >
                 Add recipe
               </div>
 
               <div
+                className={NewRecipePage.able}
                 onClick={() => {
                   this.setState({
                     title: "",
@@ -200,7 +283,8 @@ class NewRecipe extends Component {
                     direction: "",
                     directions: [],
                     prep: "",
-                    cook: ""
+                    cook: "",
+                    hint: "one",
                   });
                 }}
               >
