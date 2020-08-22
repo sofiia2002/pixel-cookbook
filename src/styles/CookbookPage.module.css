@@ -61,40 +61,6 @@
   width: 3rem;
 }
 
-/*-----------------------------------------------
-                    BOOKMARK
------------------------------------------------*/
-
-.bookmark {
-  position: absolute;
-  top: 0;
-  left: 4rem;
-  height: 36.3rem;
-  width: 2.8rem;
-  background-color: rgb(135, 50, 50);
-}
-
-.bookmark::before {
-  position: absolute;
-  content: "";
-  top: 35.6rem;
-  left: 0rem;
-  height: 0;
-  width: 0;
-  border-top: 1.2rem solid rgb(135, 50, 50);
-  border-left: 2.8rem solid transparent;
-}
-
-.bookmark::after {
-  position: absolute;
-  content: "";
-  top: 35.6rem;
-  left: 0rem;
-  height: 0;
-  width: 0;
-  border-top: 1.2rem solid rgb(135, 50, 50);
-  border-right: 2.8rem solid transparent;
-}
 
 /*-----------------------------------------------
                    HEADER

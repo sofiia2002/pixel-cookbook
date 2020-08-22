@@ -4,7 +4,6 @@ import CoverPage from "../styles/CoverPage.module.css";
 class Cover extends Component {
   constructor(props) {
     super(props);
-    console.log(props.state);
     this.state = {};
   }
 
@@ -23,12 +22,6 @@ class Cover extends Component {
         id="containerCover"
       >
         <div className={CoverPage.title}>Cookbook</div>
-        {/* <img
-          src={require("../images/coverPhoto.png")}
-          className={CoverPage.img}
-          alt=""
-        />
-        <a href="https://www.vecteezy.com/free-vector/food-app-icon"></a> */}
       </div>
     );
   }

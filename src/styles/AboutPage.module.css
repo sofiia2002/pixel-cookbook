@@ -2,147 +2,145 @@
                      DEFAULT
 -----------------------------------------------*/
 
-.container{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-46.6%, -47.4%);
-    width: 27.5rem;
-    height: 35.625rem;
-    background-color: rgb(237, 220, 201);
-    border-radius:  0 10px 10px 0;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.407);
-    z-index: 1;
-    transition: transform .4s;
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-46.6%, -47.4%);
+  width: 27.5rem;
+  height: 35.625rem;
+  background-color: rgb(237, 220, 201);
+  border-radius: 0 10px 10px 0;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.407);
+  z-index: 1;
+  transition: transform 0.4s;
 }
 
-.toTop{
-    top: 50%;
-    left: 50%;
-    transform: translate(-49%, -49.5%);
-    z-index: 5;
-    transition: transform .4s;
+.toTop {
+  top: 50%;
+  left: 50%;
+  transform: translate(-49%, -49.5%);
+  z-index: 5;
+  transition: transform 0.4s;
 }
 
 /*-----------------------------------------------
                       NAV
 -----------------------------------------------*/
 
-.nav{
-    position: absolute;
-    bottom: 4rem;
-    right: -1.5rem;
-    height: 3.5rem;
-    width: 4.5rem;
-    border-radius: 0 5px 5px 0;
-    background-color: rgb(223, 199, 172);
-    transition: right .3s, background-color .3s;
+.nav {
+  position: absolute;
+  bottom: 4rem;
+  right: -1.5rem;
+  height: 3.5rem;
+  width: 4.5rem;
+  border-radius: 0 5px 5px 0;
+  background-color: rgb(223, 199, 172);
+  transition: right 0.3s, background-color 0.3s;
 }
 
-.nav:hover{
-    cursor: pointer;
-    right: -3rem;
-    background-color: rgb(240, 222, 201);
-    transition: right .3s, background-color .3s;
+.nav:hover {
+  cursor: pointer;
+  right: -3rem;
+  background-color: rgb(240, 222, 201);
+  transition: right 0.3s, background-color 0.3s;
 }
 
-.selected{
-    right: -3rem;
-    background-color: rgb(240, 222, 201);
+.selected {
+  right: -3rem;
+  background-color: rgb(240, 222, 201);
 }
 
-.selected:hover{
-    cursor: default;
+.selected:hover {
+  cursor: default;
 }
 
-.img{
-    position: relative;
-    top: .5rem;
-    right: -1.55rem;
-    width: 2.4rem;
+.img {
+  position: relative;
+  top: 0.5rem;
+  right: -1.55rem;
+  width: 2.4rem;
 }
 
 /*-----------------------------------------------
                     BOOKMARK
 -----------------------------------------------*/
 
-.bookmark{
-    position: absolute;
-    top: 0;
-    right: 6rem;
-    height: 36.2rem;
-    width: 2.8rem;
-    background-color: rgb(167, 43, 43);
-    transition: height .3s;
+.bookmark {
+  position: absolute;
+  top: 0;
+  right: 6rem;
+  height: 36.2rem;
+  width: 2.8rem;
+  background-color: rgb(167, 43, 43);
+  transition: height 0.3s;
 }
 
-.bookmark::before{
-    position: absolute;
-    content: "";
-    top: 35.5rem;
-    left: 0rem;
-    height: 0;
-    width: 0;
-    border-top: 1.2rem solid rgb(167, 43, 43);
-    border-left: 2.8rem solid transparent;
-    transition: top .3s;
+.bookmark::before {
+  position: absolute;
+  content: "";
+  top: 35.5rem;
+  left: 0rem;
+  height: 0;
+  width: 0;
+  border-top: 1.2rem solid rgb(167, 43, 43);
+  border-left: 2.8rem solid transparent;
+  transition: top 0.3s;
 }
 
-
-.bookmark::after{
-    position: absolute;
-    content: "";
-    top: 35.5rem;
-    left: 0rem;
-    height: 0;
-    width: 0;
-    border-top: 1.2rem solid rgb(167, 43, 43);
-    border-right: 2.8rem solid transparent;
-    transition: top .3s;
+.bookmark::after {
+  position: absolute;
+  content: "";
+  top: 35.5rem;
+  left: 0rem;
+  height: 0;
+  width: 0;
+  border-top: 1.2rem solid rgb(167, 43, 43);
+  border-right: 2.8rem solid transparent;
+  transition: top 0.3s;
 }
 
-.bookmark:hover{
+.bookmark:hover {
   cursor: pointer;
   height: 38rem;
-  transition: height .3s;
+  transition: height 0.3s;
 }
 
-.bookmark:hover::before{
+.bookmark:hover::before {
   top: 37.3rem;
-  transition: top .3s;
+  transition: top 0.3s;
 }
 
-.bookmark:hover::after{
-    top: 37.3rem;
-    transition: top .3s;
+.bookmark:hover::after {
+  top: 37.3rem;
+  transition: top 0.3s;
 }
-
 
 /*-----------------------------------------------
                    HEADER
 -----------------------------------------------*/
 
-.header{
-    font-size: 1.2rem;
-    position: fixed;
-    z-index: 2;
-    height: 2.8rem;
-    width: 8rem;
-    top: 1.48rem;
-    left: 10rem;
-    color: rgb(157, 134, 106);
-    background-color: rgb(242, 232, 220);
-    text-align: center;
-    line-height: 2.8rem;
-    padding: 0 2.1rem;
-    border-radius: 32px;
+.header {
+  font-size: 1.2rem;
+  position: fixed;
+  z-index: 2;
+  height: 2.8rem;
+  width: 8rem;
+  top: 1.48rem;
+  left: 10rem;
+  color: rgb(157, 134, 106);
+  background-color: rgb(242, 232, 220);
+  text-align: center;
+  line-height: 2.8rem;
+  padding: 0 2.1rem;
+  border-radius: 32px;
 }
 
 /*-----------------------------------------------
                     BODY
 -----------------------------------------------*/
 
-.bodyContainer{
+.bodyContainer {
   z-index: 1;
   position: absolute;
   display: flex-box;
@@ -153,18 +151,51 @@
   height: 84%;
   width: 88%;
   border-radius: 5px;
-  border: 2px dashed  rgb(220, 191, 156);
+  border: 2px dashed rgb(220, 191, 156);
   background-color: rgb(242, 232, 220);
-  overflow: auto;
   padding: 2rem 1rem;
+  overflow: hidden;
 }
 
-.pageBlock{
+.pageBlock {
+  position: absolute;
+  left: 0;
+  top: 5%;
+  height: 90%;
+  width: 99%;
+}
+
+.gif{
     position: absolute;
-    left: 0;
-    top: 5%;
-    height: 90%;
-    width: 99%;
-    overflow-x: hidden;
-    overflow-y: auto;
-  }
+    top: 13rem;
+    left: -5rem;
+    width: 25rem;
+}
+
+.body{
+    display: flexbox;
+    justify-content: center;
+    align-items: center;
+}
+
+.image{
+    width: 22rem;
+}
+
+.body>*:nth-child(1){
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.body>*:nth-child(3){
+    margin: 1.5rem 1rem auto 1rem;
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+.body>*:nth-child(4){
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: .6rem;
+}

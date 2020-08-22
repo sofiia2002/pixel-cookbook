@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import NewRecipePage from "../styles//NewRecipePage.module.css";
+import axios from "axios";
 
 function AddElement({ index, element, removeElement }) {
   return (
@@ -287,6 +288,8 @@ class NewRecipe extends Component {
                         prep: this.state.prep,
                         cook: this.state.cook,
                       };
+                      axios.post('http://localhost:80/recipes/add', recipe)
+                       .then(res => console.log(res.data));
                       this.props.addRecipes(recipe);
                       this.setState({
                         title: "",

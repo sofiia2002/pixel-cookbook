@@ -1,5 +1,6 @@
 import React, { Component, useState } from "react";
 import CookbookPage from "../styles/CookbookPage.module.css";
+import axios from "axios";
 
 function AddIngredient({ element, index }) {
   return (
@@ -8,6 +9,24 @@ function AddIngredient({ element, index }) {
       <div>{element}</div>
     </div>
   );
+}
+
+function AddTime({ element }) {
+  if ("prep" in element && "cook" in element){
+    return (
+      <div className={CookbookPage.time}>
+        <div>
+          Preparation time: <span>{element.prep}</span> min
+        </div>
+        <div>
+          Cooking time: <span>{element.cook}</span> min
+        </div>
+        <div>
+          Total: <span>{parseInt(element.prep) + parseInt(element.cook)}</span>{" "}
+          min
+        </div>
+      </div>
+    )} else return null
 }
 
 function AddStep({ element, index }) {
@@ -37,17 +56,7 @@ function AddRecipe({ element, index }) {
       <div>
         <div className={CookbookPage.title}>{element.title}</div>
         <div className={CookbookPage.description}>{element.description}</div>
-        <div className={CookbookPage.time}>
-          <div>
-            Preparation time: <span>{element.prep}</span> min
-          </div>
-          <div>
-            Cooking time: <span>{element.cook}</span> min
-          </div>
-          <div>
-            Total: <span>{parseInt(element.prep) + parseInt(element.cook)}</span> min
-          </div>
-        </div>
+        <AddTime element={element} />
         <div className={CookbookPage.ingredients}>
           <div>Ingredients</div>
           <div>
@@ -71,9 +80,20 @@ function AddRecipe({ element, index }) {
 
 class Cookbook extends Component {
   state = {
-    recipes: this.props.recipes,
+    recipes: [],
     openedRecipe: 0,
   };
+
+  componentDidUpdate() {
+    axios
+      .get("http://localhost:80/recipes/")
+      .then((res) => {
+        this.setState({ recipes: res.data });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
 
   render() {
     return (
@@ -98,10 +118,6 @@ class Cookbook extends Component {
             alt=""
           />
         </div>
-        <div
-          className={CookbookPage.bookmark}
-          onClick={() => console.log(this.state.recipes)}
-        ></div>
         <div className={CookbookPage.bodyContainer}>
           <div className={CookbookPage.header}>Cookbook</div>
           <div className={CookbookPage.pageBlock}>
