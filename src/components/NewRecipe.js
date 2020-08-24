@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import NewRecipePage from "../styles//NewRecipePage.module.css";
+import NewRecipePage from "../styles/NewRecipePage.module.css";
+import Button from "../styles/Button.module.css";
 import axios from "axios";
 
 function AddElement({ index, element, removeElement }) {
@@ -7,7 +8,7 @@ function AddElement({ index, element, removeElement }) {
     <div>
       <div>{index + 1}</div>
       <div>{element}</div>
-      <div onClick={() => removeElement(index)} className="far fa-trash"></div>
+      <div onClick={() => removeElement(index)} className="fa fa-trash"></div>
     </div>
   );
 }
@@ -265,14 +266,14 @@ class NewRecipe extends Component {
                 </div>
               </div>
 
-              <div className={NewRecipePage.buttons}>
+              <div className={Button.buttons}>
                 <div
                   className={
                     this.state.title.replace(/ /g, "") !== "" &&
                     this.state.ingredients.length !== 0 &&
                     this.state.directions.length !== 0
-                      ? NewRecipePage.able
-                      : NewRecipePage.disable
+                      ? Button.able
+                      : Button.disable
                   }
                   onClick={() => {
                     if (

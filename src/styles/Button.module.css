@@ -1,0 +1,37 @@
+.buttons{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.buttons>*{
+    display: flexbox;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    color: rgb(131, 22, 22);
+    width: 40%;
+    height: 3rem;
+    padding: .6rem;
+    text-align: center;
+    text-transform: uppercase;
+    border: 3px dashed rgb(131, 22, 22);
+    border-radius: 10px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.able{
+    color: rgb(131, 22, 22);
+    border: 3px dashed rgb(131, 22, 22);
+}
+
+.disable{
+    color: rgba(131, 22, 22, 0.24);
+    border: 3px dashed rgba(131, 22, 22, 0.24);
+}
+
+.disable:hover{
+    cursor: default;
+}

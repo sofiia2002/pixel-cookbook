@@ -61,7 +61,6 @@
   width: 3rem;
 }
 
-
 /*-----------------------------------------------
                    HEADER
 -----------------------------------------------*/
@@ -134,10 +133,6 @@
   margin: 1rem auto 2rem 8%;
 }
 
-.recipe:hover {
-  cursor: pointer;
-}
-
 .front {
   position: relative;
   top: -0.6rem;
@@ -155,7 +150,6 @@
   position: relative;
   bottom: -4.7rem;
   color: #9980648e;
-  
 }
 
 .recipe > *:nth-child(2) {
@@ -201,6 +195,7 @@
 
 .close {
   height: 5.8rem;
+  cursor: pointer;
 }
 
 /*-----------------------------------------------
@@ -214,9 +209,13 @@
   text-align: right;
 }
 
-.time>*:last-child {
-    color: rgb(70, 10, 10);
-  }
+.time > *:last-child {
+  color: rgb(70, 10, 10);
+}
+
+.directions{
+  margin-bottom: 2.5rem;
+}
 
 .ingredients > *:first-child,
 .directions > *:first-child {
@@ -227,39 +226,38 @@
   text-align: left;
 }
 
-.ingredients > *:nth-child(n+2),
-.directions > *:nth-child(n+2){
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    font-size: .7rem;
-    line-height: 1rem;
-    text-align: left;
+.ingredients > *:nth-child(n + 2),
+.directions > *:nth-child(n + 2) {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.7rem;
+  line-height: 1rem;
+  text-align: left;
 }
 
-.ingredients > *:nth-child(n+2)> *{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    color: rgb(39, 25, 8);
+.ingredients > *:nth-child(n + 2) > * {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: rgb(39, 25, 8);
 }
 
-.directions > *:nth-child(n+2)> *{
-    display: flexbox;
-    margin-left: .5rem;
-    margin-bottom: 1.2rem;
-    color: rgb(39, 25, 8);
+.directions > *:nth-child(n + 2) > * {
+  display: flexbox;
+  margin-left: 0.5rem;
+  margin-bottom: 1.2rem;
+  color: rgb(39, 25, 8);
 }
 
-.ingredients > *:nth-child(n+2)>*>*:first-child{
-    padding: .25rem .7rem;
-    margin: .5rem .5rem;
-    background-color: rgba(230, 203, 171, 0.401);
-    border-radius: 15px;
+.ingredients > *:nth-child(n + 2) > * > *:first-child {
+  padding: 0.25rem 0.7rem;
+  margin: 0.5rem 0.5rem;
+  background-color: rgba(230, 203, 171, 0.401);
+  border-radius: 15px;
 }
 
-.directions > *:nth-child(n+2)>*>*:first-child{
-    font-size: .85rem;
-    margin-bottom: .7rem;
-    color: black;
+.directions > *:nth-child(n + 2) > * > *:first-child {
+  font-size: 0.85rem;
+  margin-bottom: 0.7rem;
+  color: black;
 }
-

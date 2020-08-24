@@ -1,6 +1,16 @@
 import React, { Component, useState } from "react";
 import CookbookPage from "../styles/CookbookPage.module.css";
+import Button from "../styles/Button.module.css";
 import axios from "axios";
+
+
+function deleteRecipe(element) {
+  axios
+    .delete("http://localhost:80/recipes/delete/"+element._id)
+    .catch(function (error) {
+      console.log(error);
+    });
+}
 
 function AddIngredient({ element, index }) {
   return (
@@ -12,7 +22,7 @@ function AddIngredient({ element, index }) {
 }
 
 function AddTime({ element }) {
-  if ("prep" in element && "cook" in element){
+  if (element.prop !== "" && element.cook !== "") {
     return (
       <div className={CookbookPage.time}>
         <div>
@@ -26,7 +36,8 @@ function AddTime({ element }) {
           min
         </div>
       </div>
-    )} else return null
+    );
+  } else return null;
 }
 
 function AddStep({ element, index }) {
@@ -48,10 +59,9 @@ function AddRecipe({ element, index }) {
           ? `${CookbookPage.recipe} ${CookbookPage.open}`
           : `${CookbookPage.recipe} ${CookbookPage.close}`
       }
-      onClick={() => setOpen(!open)}
     >
-      <div className={CookbookPage.front}>
-        <div className="fas fa-angle-down"></div>
+      <div className={CookbookPage.front} onClick={() => setOpen(true)}>
+        <div className="fa fa-angle-down"></div>
       </div>
       <div>
         <div className={CookbookPage.title}>{element.title}</div>
@@ -73,6 +83,16 @@ function AddRecipe({ element, index }) {
             ))}
           </div>
         </div>
+        <div className={Button.buttons}>
+          <div
+            onClick={() => {
+              deleteRecipe(element);
+            }}
+          >
+            Delete
+          </div>
+          <div onClick={() => setOpen(false)}>Close</div>
+        </div>
       </div>
     </div>
   );
@@ -83,6 +103,7 @@ class Cookbook extends Component {
     recipes: [],
     openedRecipe: 0,
   };
+
 
   componentDidUpdate() {
     axios
@@ -123,7 +144,11 @@ class Cookbook extends Component {
           <div className={CookbookPage.pageBlock}>
             <div className={Cookbook.recipes}>
               {this.state.recipes.map((element, index) => (
-                <AddRecipe key={index} element={element} index={index} />
+                <AddRecipe
+                  key={index}
+                  element={element}
+                  index={index}
+                />
               ))}
             </div>
           </div>

@@ -45,11 +45,22 @@ recipeRoutes.route("/add").post(function(req,res) {
     let recipe = new Recipe(req.body);
     recipe.save()
     .then(recipe => {
-        res.status(200).json({"recipe" : "recipe added successfully "})
+        res.status(200).json({"recipe" : "recipe deleted successfully "})
     })
     .catch(err => {
-        res.status(400).send("adding new todo failed")
+        res.status(400).send("deleting recipe failed")
     })
+})
+
+recipeRoutes.route("/delete/:id").delete(function(req,res) {
+    let id = req.params.id;
+    Recipe.findByIdAndDelete(id, function(err, recipes) {
+        if (err) {
+            console.log(err);
+        } else {
+            res.sendStatus(200);
+        }
+    });
 })
 
 app.listen(PORT, function() {
