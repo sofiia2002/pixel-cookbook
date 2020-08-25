@@ -45,10 +45,10 @@ recipeRoutes.route("/add").post(function(req,res) {
     let recipe = new Recipe(req.body);
     recipe.save()
     .then(recipe => {
-        res.status(200).json({"recipe" : "recipe deleted successfully "})
+        res.status(200).json({"recipe" : "recipe added successfully "})
     })
     .catch(err => {
-        res.status(400).send("deleting recipe failed")
+        res.status(400).send("adding recipe failed")
     })
 })
 

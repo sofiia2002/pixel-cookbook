@@ -1,14 +1,65 @@
-import React, { Component } from "react";
+import React, { Component, useState, useRef } from "react";
 import NewRecipePage from "../styles/NewRecipePage.module.css";
 import Button from "../styles/Button.module.css";
 import axios from "axios";
 
-function AddElement({ index, element, removeElement }) {
+function AddElement({ index, element, removeElement, editText }) {
+  const [edit, setEdit] = useState(false);
+  const [text, setText] = useState(element);
+  const editableRef = useRef();
+
   return (
     <div>
       <div>{index + 1}</div>
-      <div>{element}</div>
-      <div onClick={() => removeElement(index)} className="fa fa-trash"></div>
+      <div
+        contentEditable={edit ? "true" : "false"}
+        ref={editableRef}
+        onPaste={(e) => {
+          e.preventDefault();
+          const text = e.clipboardData.getData("text");
+          editableRef.current.innerText = editableRef.current.innerText + text;
+        }}
+        onKeyDown={(e) => {
+          console.log(text);
+          if (e.keyCode === 13) {
+            setEdit(false);
+            if (text!==""){
+              editText(text, index);
+            } else {
+              setText(element);
+            }
+          }
+        }}
+        onKeyUp={(e)=>{
+          setText(e.currentTarget.textContent)
+        }
+        }
+      >
+        {element}
+      </div>
+      <div
+        onClick={() => {
+          if ((edit)&&(text!=="")) {
+            editText(text, index);
+          } else if((edit)&&(text==="")) {
+            setText(element);
+          }
+          setEdit(!edit);
+        }}
+        className={edit ? "fa fa-save" : "fa fa-pencil"}
+      ></div>
+      <div
+        onClick={() => {
+          if (edit) {
+            editableRef.current.innerText = element;
+            setText(element);
+            setEdit(false);
+          } else {
+          removeElement(index);
+          }
+        }}
+        className={edit ? "fa fa-times-circle" : "fa fa-trash"}
+      ></div>
     </div>
   );
 }
@@ -37,6 +88,18 @@ class NewRecipe extends Component {
     const newIngredients = this.state.ingredients;
     newIngredients.splice(index, 1);
     this.setState({ ingredients: newIngredients });
+  };
+
+  editIngredient = (text, index) => {
+    let newIngredients = this.state.ingredients;
+    newIngredients[index] = text;
+    this.setState({ ingredients: newIngredients });
+  };
+
+  editDirection = (text, index) => {
+    let newDirections = this.state.directions;
+    newDirections[index] = text;
+    this.setState({ directions: newDirections });
   };
 
   render() {
@@ -169,6 +232,7 @@ class NewRecipe extends Component {
                       element={element}
                       index={index}
                       removeElement={this.removeIngredient}
+                      editText={this.editIngredient}
                     />
                   ))}
                 </div>
@@ -200,6 +264,7 @@ class NewRecipe extends Component {
                       element={element}
                       index={index}
                       removeElement={this.removeDirection}
+                      editText={this.editDirection}
                     />
                   ))}
                 </div>
@@ -289,8 +354,9 @@ class NewRecipe extends Component {
                         prep: this.state.prep,
                         cook: this.state.cook,
                       };
-                      axios.post('http://localhost:80/recipes/add', recipe)
-                       .then(res => console.log(res.data));
+                      axios
+                        .post("http://localhost:80/recipes/add", recipe)
+                        .then((res) => console.log(res.data));
                       this.props.addRecipes(recipe);
                       this.setState({
                         title: "",

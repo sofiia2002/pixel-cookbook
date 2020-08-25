@@ -32,8 +32,7 @@ function AddTime({ element }) {
           Cooking time: <span>{element.cook}</span> min
         </div>
         <div>
-          Total: <span>{parseInt(element.prep) + parseInt(element.cook)}</span>{" "}
-          min
+          Total: <span>{parseInt(element.prep) + parseInt(element.cook)}</span>min
         </div>
       </div>
     );

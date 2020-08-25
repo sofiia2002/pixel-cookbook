@@ -313,7 +313,7 @@
 
 
 /*-----------------------------------------------
-                ELEMENTS
+        ELEMENTS OF INGREDIENTS/DIRECTIONS
 -----------------------------------------------*/
 
 .elements{
@@ -321,12 +321,20 @@
     flex-direction: column;
     align-items: flex-start;
     font-size: .9rem;
-    margin: 1rem .5rem;
     width: 21.2rem;
+}
+
+.elements>*:first-child{
+    margin-top: 1rem;
+}
+
+.elements>*:last-child{
+    margin-bottom: 1rem;
 }
 
 .elements>*{
     display: flex;
+    margin: 0 .5rem;
     flex-direction: row;
     margin-bottom: .5rem;
     align-items: center;
@@ -334,14 +342,22 @@
 }
 
 .elements>*>*:nth-child(2){
-    width: 16rem;
+    width: 15rem;
 }
 
+.elements>*>*:nth-child(3),
 .elements>*>*:last-child{
-    width: 2rem;
+    font-size: 1rem;
+    margin-left: .5rem;
     color: rgb(90, 14, 14);
 }
 
+[contenteditable] {
+    outline: 0px solid transparent;
+    white-space: pre-wrap;
+}
+
+.elements>*>*:nth-child(3):hover,
 .elements>*>*:last-child:hover{
     cursor: pointer;
 }
