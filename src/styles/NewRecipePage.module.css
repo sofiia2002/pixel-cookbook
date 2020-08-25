@@ -343,6 +343,7 @@
 
 .elements>*>*:nth-child(2){
     width: 15rem;
+    padding: .1rem .2rem;
 }
 
 .elements>*>*:nth-child(3),
@@ -352,9 +353,15 @@
     color: rgb(90, 14, 14);
 }
 
-[contenteditable] {
-    outline: 0px solid transparent;
-    white-space: pre-wrap;
+[contenteditable="true"] {
+    outline: none;
+    border: 1px dotted rgb(90, 14, 14);
+    border-radius: 5px;
+}
+
+[contenteditable="false"] {
+    outline: none;
+    border: none;
 }
 
 .elements>*>*:nth-child(3):hover,

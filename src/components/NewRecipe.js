@@ -32,8 +32,7 @@ function AddElement({ index, element, removeElement, editText }) {
         }}
         onKeyUp={(e)=>{
           setText(e.currentTarget.textContent)
-        }
-        }
+        }}
       >
         {element}
       </div>
