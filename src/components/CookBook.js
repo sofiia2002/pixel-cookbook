@@ -48,7 +48,7 @@ function AddStep({ element, index }) {
   );
 }
 
-function AddRecipe({ element, index }) {
+function AddRecipe({ element }) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -56,7 +56,7 @@ function AddRecipe({ element, index }) {
       className={
         open
           ? `${CookbookPage.recipe} ${CookbookPage.open}`
-          : `${CookbookPage.recipe} ${CookbookPage.close}`
+          : CookbookPage.recipe
       }
     >
       <div className={CookbookPage.front} onClick={() => setOpen(true)}>
@@ -146,7 +146,6 @@ class Cookbook extends Component {
                 <AddRecipe
                   key={index}
                   element={element}
-                  index={index}
                 />
               ))}
             </div>

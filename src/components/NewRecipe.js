@@ -20,7 +20,6 @@ function AddElement({ index, element, removeElement, editText }) {
           editableRef.current.innerText = editableRef.current.innerText + text;
         }}
         onKeyDown={(e) => {
-          console.log(text);
           if (e.keyCode === 13) {
             setEdit(false);
             if (text!==""){

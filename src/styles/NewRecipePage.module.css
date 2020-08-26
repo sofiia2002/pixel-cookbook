@@ -354,9 +354,9 @@
 }
 
 [contenteditable="true"] {
+    color: rgba(61, 61, 61, 0.829);
     outline: none;
-    border: 1px dotted rgb(90, 14, 14);
-    border-radius: 5px;
+    border: none;
 }
 
 [contenteditable="false"] {

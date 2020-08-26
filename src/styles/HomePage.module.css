@@ -113,6 +113,11 @@
     overflow-y: auto;
   }
 
+.pageBlock>*:nth-child(2){
+  top: 4.9rem;
+  left: .8rem;
+}
+
 /*-----------------------------------------------
                     TITLE
 -----------------------------------------------*/
@@ -126,26 +131,6 @@
     text-transform: uppercase;
     letter-spacing: .08rem;
 }
-
-/*-----------------------------------------------
-                    PHOTOS
------------------------------------------------*/
-
-.photoContainer{
-    position: absolute;
-    padding: .5rem;
-    background-color: rgba(203, 179, 149, 0.585);
-    border: 3px dotted rgba(155, 136, 113, 0.397);
-    border-radius: 5px;
-    top: 4.9rem;
-    left: .8rem;
-    width: 22rem;
-}
-
-.photo{
-    width: 20.6rem;
-}
-
 
 /*-----------------------------------------------
                     TEXT
@@ -186,7 +171,7 @@
 }
 
 .titleText>*:nth-child(4){
-    top: 26.1rem;
+    top: 26.3rem;
     left: 2.45rem;
     letter-spacing: .6rem;
     width: 20rem;
@@ -218,7 +203,7 @@ p{
     font-size: .85rem;
     line-height: 1.2rem;
     width: 79%;
-    top: 31.5rem;
+    top: 14.5rem;
     left: 11%;
     text-align: center;
     height: 19rem;

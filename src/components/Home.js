@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import HomePage from "../styles//HomePage.module.css";
+import Photo from "../styles/Photo.module.css";
 
 class Home extends Component {
   state = {};
@@ -32,11 +33,11 @@ class Home extends Component {
             <div className={HomePage.headerText}>
               <div>Welcome</div>
             </div>
-            <div className={HomePage.photoContainer}>
+            <div className={Photo.photoContainer}>
               <img
                 src={require("../images/photoTwo.png")}
                 alt=""
-                className={HomePage.photo}
+                className={Photo.photo}
               />
             </div>
             <div className={HomePage.titleText}>

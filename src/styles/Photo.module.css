@@ -1,0 +1,18 @@
+/*-----------------------------------------------
+                    PHOTOS
+-----------------------------------------------*/
+
+.photoContainer{
+    position: relative;
+    padding: .5rem;
+    background-color: rgba(203, 179, 149, 0.585);
+    border: 3px dotted rgba(155, 136, 113, 0.397);
+    border-radius: 5px;
+    top: 0;
+    left: 0rem;
+    width: 22rem;
+}
+
+.photo{
+    width: 20.6rem;
+}

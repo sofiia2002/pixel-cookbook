@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import AboutPage from "../styles/AboutPage.module.css";
+import Photo from "../styles/Photo.module.css";
 
 class About extends Component {
   state = {};
@@ -31,11 +32,13 @@ class About extends Component {
           <div className={AboutPage.header}>About</div>
           <div className={AboutPage.body}>
             <div>Thank you for using this app, we really appreciate it.</div>
-            <img
-              src={require("../images/photoOne.png")}
-              className={AboutPage.image}
-              alt=""
-            />
+            <div className={Photo.photoContainer}>
+              <img
+                src={require("../images/photoOne.png")}
+                alt=""
+                className={Photo.photo}
+              />
+            </div>
             <div>
               This app was created by Levchenko Sonya and dedicated to all of
               the people who are not sure what they want to do and looking for

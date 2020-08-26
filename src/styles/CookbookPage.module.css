@@ -131,6 +131,7 @@
   border: 2.5px dashed rgb(131, 22, 22);
   padding: 0 1rem;
   margin: 1rem auto 2rem 8%;
+  cursor: pointer;
 }
 
 .front {
@@ -183,6 +184,7 @@
   box-sizing: border-box;
   padding: 1rem 1rem;
   height: fit-content;
+  cursor: default;
 }
 
 .open > *:nth-child(1) {
@@ -191,11 +193,6 @@
 
 .open > *:nth-child(2) {
   top: 0;
-}
-
-.close {
-  height: 5.8rem;
-  cursor: pointer;
 }
 
 /*-----------------------------------------------
