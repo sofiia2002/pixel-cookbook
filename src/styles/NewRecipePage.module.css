@@ -334,37 +334,34 @@
 
 .elements>*{
     display: flex;
-    margin: 0 .5rem;
+    margin: 0 .5rem .5rem .5rem;
     flex-direction: row;
-    margin-bottom: .5rem;
     align-items: center;
     justify-content: space-between;
+}
+
+.elements>*>*:nth-child(3){
+    margin-bottom:-0.07rem;
 }
 
 .elements>*>*:nth-child(2){
     width: 15rem;
     padding: .1rem .2rem;
+    border: none;
+    color: black;
+    height: fit-content; 
+    overflow: hidden;
+    resize: none;
 }
 
-.elements>*>*:nth-child(3),
+.elements>*>*:nth-child(3)>div,
 .elements>*>*:last-child{
     font-size: 1rem;
     margin-left: .5rem;
     color: rgb(90, 14, 14);
 }
 
-[contenteditable="true"] {
-    color: rgba(61, 61, 61, 0.829);
-    outline: none;
-    border: none;
-}
-
-[contenteditable="false"] {
-    outline: none;
-    border: none;
-}
-
-.elements>*>*:nth-child(3):hover,
+.elements>*>*:nth-child(3)>div:hover,
 .elements>*>*:last-child:hover{
     cursor: pointer;
 }

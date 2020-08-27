@@ -1,4 +1,5 @@
 import React, { Component, useState, useRef } from "react";
+import TextareaAutosize from 'react-textarea-autosize';
 import NewRecipePage from "../styles/NewRecipePage.module.css";
 import Button from "../styles/Button.module.css";
 import axios from "axios";
@@ -11,49 +12,48 @@ function AddElement({ index, element, removeElement, editText }) {
   return (
     <div>
       <div>{index + 1}</div>
-      <div
-        contentEditable={edit ? "true" : "false"}
+      <TextareaAutosize
+        disabled={!edit}
         ref={editableRef}
-        onPaste={(e) => {
-          e.preventDefault();
-          const text = e.clipboardData.getData("text");
-          editableRef.current.innerText = editableRef.current.innerText + text;
-        }}
+        id={index}
+        defaultValue={text}
         onKeyDown={(e) => {
           if (e.keyCode === 13) {
             setEdit(false);
-            if (text!==""){
+            if (text !== "") {
               editText(text, index);
             } else {
               setText(element);
             }
           }
         }}
-        onKeyUp={(e)=>{
-          setText(e.currentTarget.textContent)
+        onChange={(e) => {
+          setText(e.target.value);
         }}
-      >
-        {element}
-      </div>
-      <div
-        onClick={() => {
-          if ((edit)&&(text!=="")) {
-            editText(text, index);
-          } else if((edit)&&(text==="")) {
-            setText(element);
-          }
-          setEdit(!edit);
-        }}
-        className={edit ? "fa fa-save" : "fa fa-pencil"}
-      ></div>
+      />
+      <label htmlFor={index}>
+        <div
+          onClick={() => {
+            editableRef.current.selectionStart = editableRef.current.value.length;
+            editableRef.current.selectionEnd = editableRef.current.value.length;
+            if (edit && text !== "") {
+              editText(text, index);
+            } else if (edit && text === "") {
+              setText(element);
+            }
+            setEdit(!edit);
+          }}
+          className={edit ? "fa fa-save" : "fa fa-pencil"}
+        ></div>
+      </label>
       <div
         onClick={() => {
           if (edit) {
-            editableRef.current.innerText = element;
+            editableRef.current.value = element;
             setText(element);
             setEdit(false);
           } else {
-          removeElement(index);
+            removeElement(index);
           }
         }}
         className={edit ? "fa fa-times-circle" : "fa fa-trash"}

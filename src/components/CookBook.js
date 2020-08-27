@@ -3,10 +3,9 @@ import CookbookPage from "../styles/CookbookPage.module.css";
 import Button from "../styles/Button.module.css";
 import axios from "axios";
 
-
 function deleteRecipe(element) {
   axios
-    .delete("http://localhost:80/recipes/delete/"+element._id)
+    .delete("http://localhost:80/recipes/delete/" + element._id)
     .catch(function (error) {
       console.log(error);
     });
@@ -22,7 +21,7 @@ function AddIngredient({ element, index }) {
 }
 
 function AddTime({ element }) {
-  if (element.prop !== "" && element.cook !== "") {
+  if (element.prep !== "" && element.cook !== "") {
     return (
       <div className={CookbookPage.time}>
         <div>
@@ -32,11 +31,28 @@ function AddTime({ element }) {
           Cooking time: <span>{element.cook}</span> min
         </div>
         <div>
-          Total: <span>{parseInt(element.prep) + parseInt(element.cook)}</span>min
+          Total: <span>{parseInt(element.prep) + parseInt(element.cook)}</span>
+          min
         </div>
       </div>
     );
-  } else return null;
+  } else if (element.prep === "" && element.cook !== "") {
+    return (
+      <div className={CookbookPage.time}>
+        <div>
+          Cooking time: <span>{element.cook}</span> min
+        </div>
+      </div>
+    );
+  } else if (element.prep !== "" && element.cook === "") {
+    return (
+      <div className={CookbookPage.time}>
+        <div>
+          Preparation time: <span>{element.prep}</span> min
+        </div>
+      </div>
+    );
+  } else return "";
 }
 
 function AddStep({ element, index }) {
@@ -103,7 +119,6 @@ class Cookbook extends Component {
     openedRecipe: 0,
   };
 
-
   componentDidUpdate() {
     axios
       .get("http://localhost:80/recipes/")
@@ -143,10 +158,7 @@ class Cookbook extends Component {
           <div className={CookbookPage.pageBlock}>
             <div className={Cookbook.recipes}>
               {this.state.recipes.map((element, index) => (
-                <AddRecipe
-                  key={index}
-                  element={element}
-                />
+                <AddRecipe key={index} element={element} />
               ))}
             </div>
           </div>
