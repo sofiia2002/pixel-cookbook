@@ -358,7 +358,7 @@
 .elements>*>*:last-child{
     font-size: 1rem;
     margin-left: .5rem;
-    color: rgb(90, 14, 14);
+    color: rgba(90, 14, 14, 0.986);
 }
 
 .elements>*>*:nth-child(3)>div:hover,
