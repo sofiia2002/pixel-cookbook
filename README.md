@@ -1,7 +1,7 @@
 # Cook book created with MERN stack
 
 <p align="center">
-  <img width="90%" src="video.gif">
+  <img width="80%" src="video.gif">
 </p>
 
 ## Quick start
