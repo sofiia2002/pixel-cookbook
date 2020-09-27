@@ -1,5 +1,8 @@
-# Cook book createt with MERN stack
-![](video.gif)
+# Cook book created with MERN stack
+
+<p align="center">
+  <img width="460" height="300" src="video.gif">
+</p>
 
 ## Quick start
 ```
