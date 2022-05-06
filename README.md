@@ -1,4 +1,13 @@
-# Cook book created with MERN stack
+# Cook book web application
+
+## Technologies
+
+MERN Stack:
+- MongoDB
+- React.JS
+- Node.JS
+
+## View
 
 <p align="center">
   <img width="80%" src="video.gif">
