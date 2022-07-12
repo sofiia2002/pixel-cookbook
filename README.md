@@ -3,9 +3,9 @@
 ## Technologies
 
 MERN Stack:
-- MongoDB
-- React.JS
-- Node.JS
+- MongoDB, as a database
+- React.JS, as a frontend
+- Node.JS, as a backend
 
 ## View
 
